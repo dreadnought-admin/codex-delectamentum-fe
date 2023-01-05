@@ -17,6 +17,8 @@ const RecipeForm = ({ onAddRecipe }) => {
     setFormData((formData) => ({...formData, [name]: value}))
   }
 
+  // submit must be fixed! it DOES post to the db, but with no values :( everything returns null
+
   const handleSubmit = data => {
     
     onAddRecipe(data)
