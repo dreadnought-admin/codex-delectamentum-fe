@@ -7,13 +7,11 @@ import Main from './components/Main';
 
 
 const RecipeAPI =  "http://localhost:9292/recipes"
-const UserAPI = "http://localhost:9292/users"
-const ReviewAPI = "http://localhost:9292/reviews"
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
   const [updateRecipes, setUpdateRecipes] = useState([]);
-  const [search, setSearch] = useState("");
+  const [isMedieval, setIsMedieval] = useState(true);
 
   useEffect(() => {
     fetch(RecipeAPI)
@@ -35,10 +33,21 @@ const App = () => {
     setUpdateRecipes(!updateRecipes)
   }
 
+  const onToggleMedieval = () => {
+    setIsMedieval(!isMedieval)
+  }
+
+  console.log(RecipeAPI);
+
   return(
     <div className="App">
-      <Header />
-      <Main/>
+
+      <Header 
+      isMedieval={isMedieval}
+      onToggleMedieval={onToggleMedieval}
+      />
+
+      <Main />
       <Footer />
     </div>
   )
