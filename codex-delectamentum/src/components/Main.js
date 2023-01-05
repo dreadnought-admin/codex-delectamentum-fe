@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { Switch, Route } from "react-router-dom";
+
 
 import RecipeList from './RecipeList';
 import RecipeForm from './RecipeForm';
@@ -13,7 +15,7 @@ const ReviewAPI = "http://localhost:9292/reviews"
 
 
 
-const Main = ({ recipes, setRecipes, handleDelete }) => {
+const Main = ({ recipes, setRecipes, handleDelete, enterEditMode, recipeId, completeEditing, onUpdateRecipe }) => {
     
     console.log(recipes)
     const [search, setSearch] = useState("");
@@ -30,9 +32,13 @@ const Main = ({ recipes, setRecipes, handleDelete }) => {
 
   return (
     <div>
+      <Switch>
+      <Route exact path="/">
+        <About />
+        
+      </Route>
 
-      <About />
-
+    <Route exact path="/recipes">
       <Search 
       search={search} 
       setSearch={setSearch}  
@@ -41,15 +47,30 @@ const Main = ({ recipes, setRecipes, handleDelete }) => {
       <RecipeList 
       recipes={searchResult} 
       handleDelete={handleDelete}
+      enterEditMode={enterEditMode}
       />
+    </Route>
       
+    <Route exact path="/recipes/new">
       <RecipeForm 
       recipes={recipes}
       setRecipes={setRecipes}
       />
+    </Route>
 
+    <Route path="/recipes/:id/edit">
+      <RecipeEditForm
+        recipeId={recipeId}
+        completeEditing={completeEditing}
+        onUpdateRecipe={onUpdateRecipe}
+        />
+    </Route>
+
+    <Route path="/recipes/:id">
+      <RecipeDetail />
+    </Route>
      
-
+    </Switch>
     </div>
   )
 }

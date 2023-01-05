@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from "react-router-dom"
 
-const RecipeListItem = ({ recipe, handleDelete }) => {
+const RecipeListItem = ({ recipe, handleDelete, enterEditMode }) => {
 
   const { id, title, series, image_url, 
   prep_time, ingredients, instructions, reviews, user } = recipe 
+
+  const handleEditClick = () => {
+    enterEditMode(id);
+  }
 
 
   return (
@@ -20,6 +25,10 @@ const RecipeListItem = ({ recipe, handleDelete }) => {
         <p>{ingredients}</p>
         <p>{instructions}</p>
         <button type="button" id={id} onClick={() => handleDelete(id)}>Delete</button>
+        <Link to={`recipes/${id}/edit`}>
+          <button onClick={handleEditClick}>Edit this shit
+          </button>
+        </Link>
       </div>
     </div>
   )

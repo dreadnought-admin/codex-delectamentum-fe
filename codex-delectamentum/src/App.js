@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { Switch, Route } from "react-router-dom";
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -11,6 +10,7 @@ const RecipeAPI =  "http://localhost:9292/recipes"
 const App = () => {
   const [recipes, setRecipes] = useState([]);
   const [updateRecipes, setUpdateRecipes] = useState([]);
+  const [recipeId, setRecipeId] = useState(null);
   const [isMedieval, setIsMedieval] = useState(true);
 
   useEffect(() => {
@@ -19,10 +19,7 @@ const App = () => {
     .then((data) => {
       setRecipes(data)
     })
-  }, [updateRecipes])
-
-  // add a recipe 
-
+  }, [])
 
   // delete a recipe 
   // will belong to a delete button on each recipe
@@ -44,19 +41,24 @@ const App = () => {
   // intended to update instructions 
   // 10000% need to redo this
 
-  const updateRecipeInstructions = (eachRecipe) => {
-    fetch(`http://localhost:9292/recipes/${eachRecipe.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify({
-        instructions: eachRecipe.instructions
-      }),
-    })
+  const onUpdateRecipe = (updatedRecipe) => {
+    const updatedRecipes = recipes.map((ogRecipe) => {
+      if (ogRecipe.id === updatedRecipe.id) {
+        return updatedRecipe;
+      } else {
+        return ogRecipe;
+      }
+    });
+    setRecipes(updatedRecipes);
   }
 
+  const completeEdit = () => {
+    setRecipeId(null);
+  }
+
+  const enterEditMode = (recipeId) => {
+    setRecipeId(recipeId);
+  }
 
 
   const onToggleMedieval = () => {
@@ -72,10 +74,16 @@ const App = () => {
       onToggleMedieval={onToggleMedieval}
       />
 
+
+
       <Main 
       recipes={recipes}
       setRecipes={setRecipes}
       handleDelete={handleDelete} 
+      recipeId={recipeId}
+      completeEdit={completeEdit}
+      onUpdateRecipe={onUpdateRecipe}
+      enterEditMode={enterEditMode}
       />
 
       <Footer />

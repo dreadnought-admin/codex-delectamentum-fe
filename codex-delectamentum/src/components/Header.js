@@ -1,18 +1,27 @@
 import React from 'react'
+import { NavLink, Link } from 'react-router-dom'
 
 const Header = () => {
   return (
     <header>
-      <nav className="navigation">
-        <div className="logoContainer">
+      <div className="logoContainer">
           <img className="siteLogo" src=""></img>
         </div>
+      <h1>
+        <Link to="/">Home</Link>
+      </h1>
+      <nav className="navigation">
+        
+        
         <div className="buttonBar">
+        <NavLink exact to="/recipes">View Recipes
+        </NavLink>
 
-        <a href="">Home</a>
-        <a href="">View Recipes</a>
-        <a href="">Submit a Recipe</a>
-        <a href="">View Users & Reviews</a>
+        <NavLink to="/recipes/new">Submit a Recipe
+        </NavLink>
+
+        <NavLink to="#">View Users & Reviews
+        </NavLink>
 
         </div>
       </nav>
