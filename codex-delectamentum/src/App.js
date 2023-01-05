@@ -21,9 +21,24 @@ const App = () => {
     })
   }, [updateRecipes])
 
-  const handleAddRecipe = newRecipe => {
-    setRecipes([...recipes, newRecipe]);
-    setUpdateRecipes(updateRecipes)
+  const handleAddRecipe = ({ title, series, image_url, prep_time, ingredients, instructions }) => {
+    fetch(`http://localhost:9292/recipes`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({
+        title: title,
+        series: series,
+        image_url: image_url,
+        prep_time: prep_time,
+        ingredients: ingredients,
+        instructions: instructions
+      }),
+    })
+    .then((r) => r.json())
+    .then((newRecipe) => setRecipes([...recipes, newRecipe]));
   }
 
   const onClickDelete = id => { 
@@ -37,7 +52,6 @@ const App = () => {
     setIsMedieval(!isMedieval)
   }
 
-  console.log(RecipeAPI);
 
   return(
     <div className="App">
@@ -47,8 +61,14 @@ const App = () => {
       onToggleMedieval={onToggleMedieval}
       />
 
-      <Main />
+      <Main 
+      recipes={recipes}
+      onAddRecipe={handleAddRecipe}
+      onClickDelete={onClickDelete} 
+      />
+
       <Footer />
+
     </div>
   )
 }

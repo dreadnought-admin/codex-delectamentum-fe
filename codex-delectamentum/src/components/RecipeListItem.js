@@ -1,9 +1,26 @@
 import React from 'react'
 
-const RecipeListItem = () => {
+const RecipeListItem = ({ recipe }) => {
+
+  const { title, series, image_url, 
+  prep_time, ingredients, instructions } = recipe 
+
+    console.log({instructions})
+
   return (
-    <div>
-      <h1>This is the individual reicpe item</h1>
+    <div className="recipeContainer">
+      <div>
+        <ul className="recipeImg">
+          <img src={image_url}></img>
+        </ul>
+      </div>
+
+      <div>
+        <h2>{title} | {series}</h2>
+        <h4>{prep_time}</h4>
+        <p>{ingredients}</p>
+        <p>{instructions}</p>
+      </div>
     </div>
   )
 }

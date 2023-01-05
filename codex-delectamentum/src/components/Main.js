@@ -11,16 +11,19 @@ const UserAPI = "http://localhost:9292/users"
 const ReviewAPI = "http://localhost:9292/reviews"
 
 
-const Main = () => {
+const Main = ({ recipes, onAddRecipe }) => {
     
     const [search, setSearch] = useState("");
 
+    console.log(recipes)
     console.log(UserAPI)
     console.log(ReviewAPI)
 
   return (
     <div>
-      <h1>This is main</h1>
+      <RecipeList recipes={recipes} />
+
+      <RecipeForm onAddRecipe={onAddRecipe}/>
     </div>
   )
 }
