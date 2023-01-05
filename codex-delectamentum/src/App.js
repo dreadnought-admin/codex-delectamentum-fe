@@ -28,14 +28,16 @@ const App = () => {
   // will belong to a delete button on each recipe
   // must be fixed! does not work yet
 
-  const onClickDelete = recipe => { 
-    fetch(`http://localhost:9292/recipes/${recipe.id}`, {
+  const handleDelete = (id) => {
+    fetch(`http://localhost:9292/recipes/${id}`,
+    { 
       method: "DELETE",
+    }
+  )
+    .then((res) => res.json())
+    .then(() => {
+      setRecipes((recipes) => recipes.filter((item) => item.id !== id));
     });
-    const remainingRecipes = recipes.filter(
-      (eachRecipe) => parseInt(eachRecipe.id) !== parseInt(recipe.id)
-    );
-    setRecipes(remainingRecipes);
   }
 
   // patch request 
@@ -73,7 +75,7 @@ const App = () => {
       <Main 
       recipes={recipes}
       setRecipes={setRecipes}
-      onClickDelete={onClickDelete} 
+      handleDelete={handleDelete} 
       />
 
       <Footer />

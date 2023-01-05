@@ -13,7 +13,7 @@ const ReviewAPI = "http://localhost:9292/reviews"
 
 
 
-const Main = ({ recipes, setRecipes, onClickDelete }) => {
+const Main = ({ recipes, setRecipes, handleDelete }) => {
     
     console.log(recipes)
     const [search, setSearch] = useState("");
@@ -40,7 +40,7 @@ const Main = ({ recipes, setRecipes, onClickDelete }) => {
 
       <RecipeList 
       recipes={searchResult} 
-      onClickDelete={onClickDelete}
+      handleDelete={handleDelete}
       />
       
       <RecipeForm 

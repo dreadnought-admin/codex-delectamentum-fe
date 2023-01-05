@@ -1,16 +1,10 @@
 import React from 'react'
 
-const RecipeListItem = ({ recipe, onClickDelete }) => {
+const RecipeListItem = ({ recipe, handleDelete }) => {
 
   const { id, title, series, image_url, 
   prep_time, ingredients, instructions, reviews, user } = recipe 
 
-    // coming back  to this
-    
-
-    const handleDelete = (e) => {
-      onClickDelete(e);
-    }
 
   return (
     <div className="recipeContainer">
@@ -25,7 +19,7 @@ const RecipeListItem = ({ recipe, onClickDelete }) => {
         <h4>{prep_time}</h4>
         <p>{ingredients}</p>
         <p>{instructions}</p>
-        <button type="button" id={id} onClick={handleDelete}>Delete</button>
+        <button type="button" id={id} onClick={() => handleDelete(id)}>Delete</button>
       </div>
     </div>
   )

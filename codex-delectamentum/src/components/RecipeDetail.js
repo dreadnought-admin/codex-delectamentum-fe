@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import {useParams} from "react-router-dom"
 
 const RecipeDetail = () => {
+  const [recipe, setRecipe] = useState()
+  const {id} = useParams();
+
+  useEffect(() => {
+    fetch(`http://localhost:9292/recipes/${id}`)
+    .then(r => r.json())
+    .then(data => setRecipe(data))
+  })
+
   return (
-    <div>
-      <h3>This is the recipe detail component</h3>
-    </div>
+    !recipe ? <p>404: Recipe Not Found</p> : (
+      <div></div>
+    )
   )
 }
 
