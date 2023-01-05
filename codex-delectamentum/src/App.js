@@ -16,32 +16,13 @@ const App = () => {
   useEffect(() => {
     fetch(RecipeAPI)
     .then((r) => r.json())
-    .then((recipes) => {
-      setRecipes(recipes)
+    .then((data) => {
+      setRecipes(data)
     })
   }, [updateRecipes])
 
   // add a recipe 
 
-  const handleAddRecipe = ({ title, series, image_url, prep_time, ingredients, instructions }) => {
-    fetch(`http://localhost:9292/recipes`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify({
-        title: title,
-        series: series,
-        image_url: image_url,
-        prep_time: prep_time,
-        ingredients: ingredients,
-        instructions: instructions
-      }),
-    })
-    .then((r) => r.json())
-    .then((newRecipe) => setRecipes([...recipes, newRecipe]));
-  }
 
   // delete a recipe 
   // will belong to a delete button on each recipe
@@ -91,7 +72,7 @@ const App = () => {
 
       <Main 
       recipes={recipes}
-      onAddRecipe={handleAddRecipe}
+      setRecipes={setRecipes}
       onClickDelete={onClickDelete} 
       />
 

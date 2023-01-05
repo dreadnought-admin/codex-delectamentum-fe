@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const RecipeAPI = "http://localhost:9292/recipes"
 
-const RecipeForm = ({ onAddRecipe }) => {
+const RecipeForm = ({ recipes, setRecipes }) => {
   const [formData, setFormData] = useState({
     title: "",
     series: "",
@@ -13,26 +13,36 @@ const RecipeForm = ({ onAddRecipe }) => {
   });
 
   const handleChange = (e) => {
-    const {name, value} = e.target
-    setFormData((formData) => ({...formData, [name]: value}))
+    let newInfo = {...formData}
+    newInfo[e.target.id] = e.target.value
+    setFormData(newInfo)
   }
 
   // submit must be fixed! it DOES post to the db, but with no values :( everything returns null
 
-  const handleSubmit = data => {
-    
-    onAddRecipe(data)
-    
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (formData.title === "" ||
+        formData.series === "" ||
+        formData.image_url === "" ||
+        formData.prep_time === "" ||
+        formData.ingredients === "" ||
+        formData.instructions === "") {
+          alert("Please complete form to submit") 
+          return 
+        }
 
-    setFormData({
-      title: "",
-      series: "",
-      image_url: "",
-      prep_time: "",
-      ingredients: [""],
-      instructions: [""]
-    });
-  }  
+        fetch("http://localhost:9292/recipes", 
+                {   method: "POST",
+                    headers: {"Content-Type" : "application/json"},
+                    body: JSON.stringify(formData)
+                }
+            ).then(res => res.json())
+            .then(data => setRecipes([...recipes, data]))
+    }
+
+        
+    
 
   return (
     <div className="form-container" id="form-container">
@@ -51,6 +61,7 @@ const RecipeForm = ({ onAddRecipe }) => {
             className="formInput"
             type="text"
             name="title"
+            id="title"
             placeholder="Enter your recipe's name"
             value={formData.title}
             onChange={handleChange}
@@ -62,6 +73,7 @@ const RecipeForm = ({ onAddRecipe }) => {
             className="formInput"
             type="text"
             name="series"
+            id="series"
             placeholder="What series is it from?"
             value={formData.series}
             onChange={handleChange}
@@ -73,6 +85,7 @@ const RecipeForm = ({ onAddRecipe }) => {
             className="formInput"
             type="text"
             name="image_url"
+            id="image_url"
             placeholder="Please enter an image URL"
             value={formData.image_url}
             onChange={handleChange}
@@ -85,6 +98,7 @@ const RecipeForm = ({ onAddRecipe }) => {
             className="formInput"
             type="text"
             name="prep_time"
+            id="prep_time"
             placeholder="How long does it take to prepare?"
             value={formData.prep_time}
             onChange={handleChange}
@@ -97,6 +111,7 @@ const RecipeForm = ({ onAddRecipe }) => {
             className="formInput"
             type="text"
             name="ingredients"
+            id="ingredients"
             placeholder="What ingredients do you need?"
             value={formData.ingredients}
             onChange={handleChange}
@@ -109,6 +124,7 @@ const RecipeForm = ({ onAddRecipe }) => {
             className="formInput"
             type="text"
             name="instructions"
+            id="instructions"
             placeholder="Please enter your instructions"
             value={formData.instructions}
             onChange={handleChange}
