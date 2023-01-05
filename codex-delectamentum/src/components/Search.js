@@ -1,9 +1,21 @@
 import React from 'react'
 
-const Search = () => {
+const Search = ({ setSearch }) => {
+
+  const handleChange = (e) => setSearch(e.target.value);
+
   return (
-    <div>
-      <h3>This is the search bar</h3>
+    <div className="searchbar">
+      <label className="searchLabel" htmlFor="search">Search:</label> 
+      
+      <input
+      className="queryBox"
+      type="text"
+      id="search"
+      placeholder="Search recipes"
+      onChange={handleChange}
+      />
+
     </div>
   )
 }

@@ -11,9 +11,17 @@ const UserAPI = "http://localhost:9292/users"
 const ReviewAPI = "http://localhost:9292/reviews"
 
 
+
 const Main = ({ recipes, onAddRecipe }) => {
     
+    console.log(recipes)
     const [search, setSearch] = useState("");
+
+    const searchResult = recipes.filter(recipe => {
+      return(
+        recipe.title.toLowerCase().includes(search.toLowerCase())
+      )
+    })
 
     console.log(recipes)
     console.log(UserAPI)
@@ -21,7 +29,8 @@ const Main = ({ recipes, onAddRecipe }) => {
 
   return (
     <div>
-      <RecipeList recipes={recipes} />
+      <RecipeList recipes={searchResult} />
+      <Search search={search} setSearch={setSearch}  />
 
       <RecipeForm onAddRecipe={onAddRecipe}/>
     </div>
