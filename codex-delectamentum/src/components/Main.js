@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Switch, Route } from "react-router-dom";
 
 
@@ -6,7 +6,7 @@ import RecipeList from './RecipeList';
 import RecipeForm from './RecipeForm';
 import RecipeDetail from './RecipeDetail'
 import RecipeEditForm from './RecipeEditForm';
-// import UserList from './UserList';
+import UserList from './UserList';
 import Search from './Search';
 import About from './About';
 
@@ -17,7 +17,7 @@ const ReviewAPI = "http://localhost:9292/reviews"
 
 const Main = ({ recipes, setRecipes, handleDelete, enterEditMode, recipeId, completeEditing, onUpdateRecipe }) => {
     
-    console.log(recipes)
+    
     const [search, setSearch] = useState("");
 
     const searchResult = recipes.filter(recipe => {
@@ -26,9 +26,16 @@ const Main = ({ recipes, setRecipes, handleDelete, enterEditMode, recipeId, comp
       )
     })
 
-    console.log(recipes)
-    console.log(UserAPI)
-    console.log(ReviewAPI)
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+      fetch(UserAPI)
+      .then((r) => r.json())
+      .then((userData) => {
+        setUsers(userData)
+      })
+    }, [])
+
 
   return (
     <div>
@@ -68,6 +75,11 @@ const Main = ({ recipes, setRecipes, handleDelete, enterEditMode, recipeId, comp
 
     <Route path="/recipes/:id">
       <RecipeDetail />
+    </Route>
+
+    <Route path="/users">
+      <UserList users={users}
+      recipes={recipes}/>
     </Route>
      
     </Switch>

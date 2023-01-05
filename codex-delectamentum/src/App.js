@@ -13,6 +13,8 @@ const App = () => {
   const [recipeId, setRecipeId] = useState(null);
   const [isMedieval, setIsMedieval] = useState(true);
 
+  // retrives recipe data
+
   useEffect(() => {
     fetch(RecipeAPI)
     .then((r) => r.json())
@@ -20,11 +22,8 @@ const App = () => {
       setRecipes(data)
     })
   }, [])
-
-  // delete a recipe 
-  // will belong to a delete button on each recipe
-  // must be fixed! does not work yet
-
+  
+  // delete
   const handleDelete = (id) => {
     fetch(`http://localhost:9292/recipes/${id}`,
     { 
@@ -37,10 +36,7 @@ const App = () => {
     });
   }
 
-  // patch request 
-  // intended to update instructions 
-  // 10000% need to redo this
-
+  // patch
   const onUpdateRecipe = (updatedRecipe) => {
     const updatedRecipes = recipes.map((ogRecipe) => {
       if (ogRecipe.id === updatedRecipe.id) {
@@ -52,15 +48,18 @@ const App = () => {
     setRecipes(updatedRecipes);
   }
 
+  // to complete editing
+
   const completeEdit = () => {
     setRecipeId(null);
   }
 
+  // re-route and enter editing mode
   const enterEditMode = (recipeId) => {
     setRecipeId(recipeId);
   }
 
-
+  // eventual css state change
   const onToggleMedieval = () => {
     setIsMedieval(!isMedieval)
   }

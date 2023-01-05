@@ -20,7 +20,7 @@ const Header = () => {
         <NavLink to="/recipes/new">Submit a Recipe
         </NavLink>
 
-        <NavLink to="#">View Users & Reviews
+        <NavLink to="/users">View Users & Reviews
         </NavLink>
 
         </div>
