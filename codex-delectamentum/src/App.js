@@ -21,6 +21,8 @@ const App = () => {
     })
   }, [updateRecipes])
 
+  // add a recipe 
+
   const handleAddRecipe = ({ title, series, image_url, prep_time, ingredients, instructions }) => {
     fetch(`http://localhost:9292/recipes`, {
       method: "POST",
@@ -41,12 +43,38 @@ const App = () => {
     .then((newRecipe) => setRecipes([...recipes, newRecipe]));
   }
 
-  const onClickDelete = id => { 
-    fetch(`http://localhost:9292/recipes/${id}`, {
+  // delete a recipe 
+  // will belong to a delete button on each recipe
+  // must be fixed! does not work yet
+
+  const onClickDelete = recipe => { 
+    fetch(`http://localhost:9292/recipes/${recipe.id}`, {
       method: "DELETE",
     });
-    setUpdateRecipes(!updateRecipes)
+    const remainingRecipes = recipes.filter(
+      (eachRecipe) => parseInt(eachRecipe.id) !== parseInt(recipe.id)
+    );
+    setRecipes(remainingRecipes);
   }
+
+  // patch request 
+  // intended to update instructions 
+  // 10000% need to redo this
+
+  const updateRecipeInstructions = (eachRecipe) => {
+    fetch(`http://localhost:9292/recipes/${eachRecipe.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({
+        instructions: eachRecipe.instructions
+      }),
+    })
+  }
+
+
 
   const onToggleMedieval = () => {
     setIsMedieval(!isMedieval)

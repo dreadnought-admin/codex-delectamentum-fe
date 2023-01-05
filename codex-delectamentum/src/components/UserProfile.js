@@ -1,9 +1,12 @@
 import React from 'react'
 
-const UserProfile = () => {
+const UserProfile = ({ users }) => {
+
+  const {first_name, last_name, birthday, clan } = users;
+
   return (
     <div>
-      <h4>This is the user profile component</h4>
+      <h4>This is the user profile section</h4>
     </div>
   )
 }

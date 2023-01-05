@@ -2,9 +2,21 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <div>
-      <h2>This is the header component</h2>
-    </div>
+    <header>
+      <nav className="navigation">
+        <div className="logoContainer">
+          <img className="siteLogo" src=""></img>
+        </div>
+        <div className="buttonBar">
+
+        <a href="">Home</a>
+        <a href="">View Recipes</a>
+        <a href="">Submit a Recipe</a>
+        <a href="">View Users & Reviews</a>
+
+        </div>
+      </nav>
+    </header>
   )
 }
 

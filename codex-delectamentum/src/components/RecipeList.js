@@ -1,8 +1,8 @@
 import RecipeListItem from './RecipeListItem';
  
-const RecipeList = ({ recipes }) => {
+const RecipeList = ({ recipes, onClickDelete }) => {
     const recipeList = recipes.map((recipe) => {
-        return <RecipeListItem key={recipe.id} recipe={recipe} />
+        return <RecipeListItem key={recipe.id} recipe={recipe} onClickDelete={onClickDelete} />
     })
  
     return (

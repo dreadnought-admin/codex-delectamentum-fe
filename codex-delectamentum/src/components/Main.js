@@ -4,6 +4,7 @@ import RecipeList from './RecipeList';
 import RecipeForm from './RecipeForm';
 import RecipeDetail from './RecipeDetail'
 import RecipeEditForm from './RecipeEditForm';
+// import UserList from './UserList';
 import Search from './Search';
 import About from './About';
 
@@ -12,7 +13,7 @@ const ReviewAPI = "http://localhost:9292/reviews"
 
 
 
-const Main = ({ recipes, onAddRecipe }) => {
+const Main = ({ recipes, onAddRecipe, onClickDelete }) => {
     
     console.log(recipes)
     const [search, setSearch] = useState("");
@@ -29,10 +30,25 @@ const Main = ({ recipes, onAddRecipe }) => {
 
   return (
     <div>
-      <RecipeList recipes={searchResult} />
-      <Search search={search} setSearch={setSearch}  />
 
-      <RecipeForm onAddRecipe={onAddRecipe}/>
+      <About />
+
+      <Search 
+      search={search} 
+      setSearch={setSearch}  
+      />
+
+      <RecipeList 
+      recipes={searchResult} 
+      onClickDelete={onClickDelete}
+      />
+      
+      <RecipeForm 
+      onAddRecipe={onAddRecipe}
+      />
+
+     
+
     </div>
   )
 }

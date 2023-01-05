@@ -1,11 +1,22 @@
 import React from 'react'
 
-const RecipeListItem = ({ recipe }) => {
+const RecipeListItem = ({ recipe, onClickDelete }) => {
 
-  const { title, series, image_url, 
-  prep_time, ingredients, instructions } = recipe 
+  const { id, title, series, image_url, 
+  prep_time, ingredients, instructions, reviews, user } = recipe 
 
-    console.log({instructions})
+    console.log({reviews})
+
+    const reviewArr = reviews
+
+    const [x] = reviewArr;
+
+    console.log([x])
+    
+
+    const handleDelete = (e) => {
+      onClickDelete(e);
+    }
 
   return (
     <div className="recipeContainer">
@@ -20,6 +31,8 @@ const RecipeListItem = ({ recipe }) => {
         <h4>{prep_time}</h4>
         <p>{ingredients}</p>
         <p>{instructions}</p>
+        <p>What People Think: {x.comment} | ⭐'s out of 10: {x.star_rating}</p>
+        <button type="button" id={id} onClick={handleDelete}>Delete</button>
       </div>
     </div>
   )
