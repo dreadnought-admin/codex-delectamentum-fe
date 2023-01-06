@@ -1,7 +1,16 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
 
+
+
 const Header = () => {
+
+  let audio = new Audio("../music/tavernmusic.mp3")
+  const start = () => {
+    audio.play()
+  }
+
+
   return (
     <header>
       <div className="logoContainer">
@@ -23,6 +32,7 @@ const Header = () => {
         <NavLink className="navButton" to="/users">View Users & Reviews
         </NavLink>
 
+        <button className="button" onClick={start}>🎶</button>
         </div>
       </nav>
     </header>

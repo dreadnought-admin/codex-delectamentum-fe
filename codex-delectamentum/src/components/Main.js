@@ -11,9 +11,6 @@ import Search from './Search';
 import About from './About';
 
 const UserAPI = "http://localhost:9292/users"
-const ReviewAPI = "http://localhost:9292/reviews"
-
-
 
 const Main = ({ recipes, setRecipes, handleDelete, enterEditMode, recipeId, completeEditing, onUpdateRecipe }) => {
     

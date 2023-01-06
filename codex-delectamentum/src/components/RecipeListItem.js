@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from "react-router-dom"
 
 const RecipeListItem = ({ recipe, handleDelete, enterEditMode }) => {
@@ -9,9 +9,6 @@ const RecipeListItem = ({ recipe, handleDelete, enterEditMode }) => {
   const handleEditClick = () => {
     enterEditMode(id);
   }
-
-  console.log({ingredients})
-
  
   return (
     <div className="recipeContainer">

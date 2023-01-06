@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 
-const RecipeAPI = "http://localhost:9292/recipes"
-
 const RecipeForm = ({ recipes, setRecipes }) => {
   const [formData, setFormData] = useState({
     title: "",
@@ -17,8 +15,6 @@ const RecipeForm = ({ recipes, setRecipes }) => {
     newInfo[e.target.id] = e.target.value
     setFormData(newInfo)
   }
-
-  // submit must be fixed! it DOES post to the db, but with no values :( everything returns null
 
   const handleSubmit = (e) => {
     e.preventDefault()
