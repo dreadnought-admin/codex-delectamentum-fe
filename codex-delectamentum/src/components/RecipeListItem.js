@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 const RecipeListItem = ({ recipe, handleDelete, enterEditMode }) => {
 
   const { id, title, series, image_url, 
-  prep_time, ingredients, instructions, reviews, user } = recipe 
+  prep_time, ingredients, instructions } = recipe 
 
   const handleEditClick = () => {
     enterEditMode(id);

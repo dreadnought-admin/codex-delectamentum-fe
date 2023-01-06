@@ -2,24 +2,19 @@ import React from 'react'
 
 const UserProfile = ({ user, recipes }) => {
 
- 
-  console.log({recipes})
-
-  
-
   const {first_name, last_name, birthday, clan, reviews } = user;
 
-  const commentArray = [];
   
   const userComments = reviews.map((review) => {
     const recipeObj = (recipes.find(({id}) => id === review.recipe_id))
     console.log(recipeObj)
-    return <p>{recipeObj.title} {review.comment} {review.star_rating}</p>
+    return <p><strong>Recipe: {recipeObj.title}</strong> | <em>"{review.comment}"</em> | {review.star_rating} ⭐'s/10 <hr></hr></p> 
   })
 
   return (
     <div>
-      <h4>Reviews For: {first_name} {last_name}</h4>
+      <h3>Reviews For: {first_name} {last_name}, born of the {clan} Tribe (🍰 {birthday})</h3>
+
       {userComments}
     </div>
   )
