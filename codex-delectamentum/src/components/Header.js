@@ -5,22 +5,22 @@ const Header = () => {
   return (
     <header>
       <div className="logoContainer">
-          <img className="siteLogo" src=""></img>
+        <Link to="/">
+          <img className="siteLogo" src="../images/codex_logo.png"></img>
+          <img className="link" src="../images/link_gif.gif"></img>
+        </Link>
         </div>
-      <h1>
-        <Link to="/">Home</Link>
-      </h1>
       <nav className="navigation">
         
         
         <div className="buttonBar">
-        <NavLink exact to="/recipes">View Recipes
+        <NavLink className="navButton" exact to="/recipes">View Recipes
         </NavLink>
 
-        <NavLink to="/recipes/new">Submit a Recipe
+        <NavLink className="navButton" to="/recipes/new">Submit a Recipe
         </NavLink>
 
-        <NavLink to="/users">View Users & Reviews
+        <NavLink className="navButton" to="/users">View Users & Reviews
         </NavLink>
 
         </div>

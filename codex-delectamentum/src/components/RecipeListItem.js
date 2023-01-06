@@ -10,7 +10,9 @@ const RecipeListItem = ({ recipe, handleDelete, enterEditMode }) => {
     enterEditMode(id);
   }
 
+  console.log({ingredients})
 
+ 
   return (
     <div className="recipeContainer">
       <div>
@@ -20,13 +22,16 @@ const RecipeListItem = ({ recipe, handleDelete, enterEditMode }) => {
       </div>
 
       <div>
-        <h2>{title} | {series}</h2>
-        <h4>{prep_time}</h4>
-        <p>{ingredients}</p>
-        <p>{instructions}</p>
-        <button type="button" id={id} onClick={() => handleDelete(id)}>Delete</button>
+        <h2 className="title">{title} | {series}</h2>
+        <h3 className="prep">Total Time to Prepare: {prep_time}</h3>
+        <h2 className="subheader">Scavenge For:</h2>
+        <p className="ingredients">{ingredients}</p>
+        <h2 className="subheader">Prepare yourselves!</h2>
+        <p className="instructions">{instructions}</p>
+        <button className="button" type="button" id={id} onClick={() => handleDelete(id)}>🗑️ Bin it!</button>
         <Link to={`recipes/${id}/edit`}>
-          <button onClick={handleEditClick}>Edit this shit
+          <button className="button" onClick={handleEditClick}>
+            ✒️Edit This Recipe!
           </button>
         </Link>
       </div>

@@ -28,7 +28,7 @@ const RecipeForm = ({ recipes, setRecipes }) => {
         formData.prep_time === "" ||
         formData.ingredients === "" ||
         formData.instructions === "") {
-          alert("Please complete form to submit") 
+          alert("Ye shall not pass! 🛡️ Please complete form to submit!") 
           return 
         }
 
@@ -57,15 +57,15 @@ const RecipeForm = ({ recipes, setRecipes }) => {
     <div className="form-container" id="form-container">
       <form id="recipe-form" autoComplete="off" onSubmit={handleSubmit}>
       <fieldset className="newFormField">
-        <legend>
+        <legend className="legend">
           Stop Right There, Criminal Scum--I Mean, Chef!
         </legend>
-        <h2>
+        <h2 className="newRecipeHeader">
           Submit a New Recipe!
         </h2>
         <ul className="inputList">
           <li>
-            <label className="label">Title:</label>
+            <label className="label">Title: </label>
             <input
             className="formInput"
             type="text"
@@ -77,7 +77,7 @@ const RecipeForm = ({ recipes, setRecipes }) => {
             />
           </li>
           <li>
-            <label className="label">Series:</label>
+            <label className="label">Series: </label>
             <input
             className="formInput"
             type="text"
@@ -89,7 +89,7 @@ const RecipeForm = ({ recipes, setRecipes }) => {
             />
           </li>
           <li>
-            <label className="label">Image URL:</label>
+            <label className="label">Image URL: </label>
             <input
             className="formInput"
             type="text"
@@ -102,7 +102,7 @@ const RecipeForm = ({ recipes, setRecipes }) => {
           </li>
 
           <li>
-            <label className="label">Prep Time:</label>
+            <label className="label">Prep Time: </label>
             <input
             className="formInput"
             type="text"
@@ -115,7 +115,7 @@ const RecipeForm = ({ recipes, setRecipes }) => {
           </li>
 
           <li>
-            <label className="label">Ingredients:</label>
+            <label className="label">Ingredients: </label>
             <input
             className="formInput"
             type="text"
@@ -128,7 +128,7 @@ const RecipeForm = ({ recipes, setRecipes }) => {
           </li>
 
           <li>
-            <label className="label">Instructions:</label>
+            <label className="label">Instructions: </label>
             <input
             className="formInput"
             type="text"
@@ -140,9 +140,14 @@ const RecipeForm = ({ recipes, setRecipes }) => {
             />
           </li>
 
+        <li>
+          <button className="newSubmitButton" type="button" onClick={handleSubmit}>Submit! 🏹</button>
+        </li>
+
         </ul>
+
       </fieldset>
-        <button className="button" type="button" onClick={handleSubmit}>Submit!</button>
+        
       </form>
     </div>
   )

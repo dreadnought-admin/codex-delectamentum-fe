@@ -55,18 +55,17 @@ const RecipeEditForm = ({ onUpdateRecipe }) => {
     history.push("/recipes")
   })}
 
-  // fetch(`http://localhost:9292/recipes/${id}`)
-  // .then((resp) => resp.json())
-  // .then((updatedRecipe) => {
-  //   onUpdateRecipe(updatedRecipe);
-  //   //history.push("/recipes")
-  // })
-
   return (
-    <form onSubmit={handleSubmit} className="form" autoComplete="off">
-      <h3>Edit Recipe</h3>
-
-      <label htmlFor="title">Title</label>
+    <div>
+    <form onSubmit={handleSubmit} className="editForm" autoComplete="off">
+      <h3 className="editHeader">Ye Olde Recipe Editor 📜✍🏿</h3>
+      <fieldset className="editField">
+        <legend className="legend">
+          What Brave New Adventure Shall This Recipe Take? 🧝🏽‍♂️
+        </legend>
+      <ul className="editList">
+      <li className="editListItem">
+      <label htmlFor="title">Title: </label>
       <input
         type="text"
         id="title"
@@ -74,9 +73,10 @@ const RecipeEditForm = ({ onUpdateRecipe }) => {
         value={title}
         onChange={handleChange}
       />
+      </li>
 
-
-      <label htmlFor="series">Series</label>
+      <li className="editListItem">
+      <label htmlFor="series">Series: </label>
       <input
         type="text"
         id="series"
@@ -84,8 +84,10 @@ const RecipeEditForm = ({ onUpdateRecipe }) => {
         value={series}
         onChange={handleChange}
       />
+      </li>
 
-      <label htmlFor="image">Image</label>
+      <li className="editListItem">
+      <label htmlFor="image">Image: </label>
       <input
         type="text"
         id="image_url"
@@ -93,8 +95,10 @@ const RecipeEditForm = ({ onUpdateRecipe }) => {
         value={image_url}
         onChange={handleChange}
       />
+      </li>
 
-      <label htmlFor="prep_time">Prep Time</label>
+      <li className="editListItem">
+      <label htmlFor="prep_time">Prep Time: </label>
       <input
         type="text"
         id="prep_time"
@@ -102,8 +106,10 @@ const RecipeEditForm = ({ onUpdateRecipe }) => {
         value={prep_time}
         onChange={handleChange}
       />
+      </li>
 
-      <label htmlFor="ingredients">Ingredients</label>
+      <li className="editListItem">
+      <label htmlFor="ingredients">Ingredients: </label>
       <input
         type="text"
         id="ingredients"
@@ -111,8 +117,10 @@ const RecipeEditForm = ({ onUpdateRecipe }) => {
         value={ingredients}
         onChange={handleChange}
       />
+      </li>
 
-      <label htmlFor="instructions">Instructions</label>
+      <li className="editListItem">
+      <label htmlFor="instructions">Instructions: </label>
       <input
         type="text"
         id="instructions"
@@ -120,9 +128,13 @@ const RecipeEditForm = ({ onUpdateRecipe }) => {
         value={instructions}
         onChange={handleChange}
       />
+      </li>
+      </ul>
 
-      <button type="submit">Update Recipe</button>
+      <button className="button" type="submit">Update Recipe! 🪄</button>
+      </fieldset>
     </form>
+    </div>
   )
 
 }

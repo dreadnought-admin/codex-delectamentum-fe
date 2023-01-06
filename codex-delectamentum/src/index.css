@@ -1,18 +1,277 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@200;300;400;700;800&family=Lacquer&family=Nanum+Pen+Script&family=Pirata+One&family=UnifrakturMaguntia&display=swap');
+
+
+:root {
+  --black: #171219;
+  --dark-red: #6A170C;
+  --rust: #350C06;
+  --black-red: #150502;
+  --sandy-brown: #996D06;
+  --yellow-brown: #E5A409;
+  --yellow: #F8C345;
+  --grey-red: #776164;
+  --brown:  #7A4440;
+  --dark-brown: #331E1A;
+  --rust-green: #9E8408;
+  --dark-yellow: #E7AE15;
+  --light-pink: #F7DBE6;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  background: url('..//public/images/medieval_tavern_gif.gif');
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  max-width: 1225px;
+  display: grid;
+  font-family: 'Grenze Gotisch', cursive;
+  color: white;
+  text-decoration: none;
+  text-shadow: 2px 1px var(--black);
+  overflow-x: hidden;
+  position: relative;
+
+
+}
+
+.siteLogo {
+  max-width: 400px;
+  max-height: 200px;
+}
+
+.divider {
+  width: 100%;
+  color: var(--brown)
+
+}
+
+.reviewHeader {
+  color: var(--dark-yellow);
+}
+
+.review {
+  font-size: 20px;
+}
+
+.userInfo {
+  color: var(--dark-yellow);
+  text-shadow: 1px 1px 1px black;
+  font-size: 35px;
+}
+
+.userInfo:hover {
+  color: var(--yellow);
+  text-shadow: 2px 2px 5px var(--dark-red);
+}
+
+.link {
+  max-width: 400px;
+  max-height: 100px;
+  float: right;
+  margin-right: 40px;
+  margin-top: 20px;
+}
+
+.legend {
+  font-size: 20px;
+  color: var(--yellow-brown);
+}
+
+.inputList {
+  list-style: none;
+}
+
+.recipeContainer {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.editHeader {
+  font-size: 25px;
+  margin-left: 50px;
+}
+
+.editList {
+  list-style: none;
+}
+
+.editListItem {
+  padding-right: 10px;
+}
+
+.newRecipeHeader {
+  margin-left: 45px;
 }
 
 .image {
-  max-width: 250px;
-  max-height: 250px;
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 100%;
+  margin-top: 10px;
+  border: 1px solid transparent;
+}
+
+.image:hover {
+  color: var(--dark-yellow);
+  background: transparent;
+  box-shadow: 0 0 40px var(--dark-yellow)
+}
+
+.button:hover {
+  color: var(--yellow);
+  text-shadow: 2px 2px 5px var(--dark-red);
+}
+
+.iconContainer {
+  margin: 0 auto;
+  margin-left: 450px;
+  padding-top: 20px;
+}
+
+.icon {
+  background-color: transparent;
+  border: none;
+  font-size: 40px;
+  padding-left: 3px;
+  padding-right: 100px;
+  text-decoration: none;
+  text-shadow: 1px 1px var(--black);
+}
+
+.icon:hover {
+  color: white;
+  text-shadow: 2px 2px 5px;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  font-family: 'Pirata One', cursive;
+  font-size: 15px;
+  color: white;
+  text-decoration: none;
+  text-shadow: 1px 1px var(--black);
+}
+
+.newSubmitButton {
+  background-color: transparent;
+  border: none;
+  font-family: 'Pirata One', cursive;
+  font-size: 25px;
+  color: white;
+  text-decoration: none;
+  text-shadow: 1px 1px var(--black);
+  padding-top: 30px;
+}
+
+.newSubmitButton:hover {
+  color: var(--yellow);
+  text-shadow: 2px 2px 5px var(--dark-red);
+}
+
+.searchbar {
+  margin-top: 10px;
+  margin-left: 30px;
+}
+.searchbar input {
+  padding: 2px;
+  border: hidden;
+  border-radius: 10px;
+  font-family: 'Pirata One', cursive;
+  font-size: 20px;
+}
+
+.searchLabel {
+  font-size: 25px;
+  color: var(--light-red);
+  text-shadow: 1px 1px var(--black-red);
+  padding: 15px;
+  margin-left: 25px;
+}
+
+.about {
+  margin: 0 auto;
+  margin-top: 75px;
+  margin-left: 50px;
+  text-align: center;
+}
+
+.aboutContainer {
+  padding-bottom: 100px;
+}
+
+.footer {
+  height: 50px;
+  margin-top: -50px;
+  padding-top: 100px;
+}
+
+.viewButton {
+  color: var(--white);
+  text-shadow: 1px 1px var(--black-red);
+  margin: 0 auto;
+  margin-left: 450px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.viewButton:hover {
+  color: var(--dark-yellow);
+  text-shadow: 2px 2px 5px var(--white);
+}
+
+.navButton {
+  color: var(--light-pink);
+  text-shadow: 1px 2px var(--black);
+  font-size: 33px;
+  text-decoration: none;
+  padding-left: 3px;
+  padding-right: 30px;
+  padding-bottom: 20px;
+}
+
+.navButton:hover {
+  color: var(--white);
+  text-shadow: 2px 2px 5px var(--grey-red);
+}
+
+.footerButton {
+  color: var(--light-pink);
+  text-shadow: 1px 2px var(--black);
+  font-size: 20px;
+  text-decoration: none;
+  padding-left: 3px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+}
+
+.footerButton:hover {
+  color: var(--white);
+  text-shadow: 2px 2px 5px var(--grey-red);
+}
+
+.buttonBar {
+  margin: 0 auto;
+  margin-left: 50px;
+}
+
+.title {
+  font-family: 'UnifrakturMaguntia', cursive;
+  color: var(--light-pink);
+  text-shadow: 2px 2px 5px black;
+  font-size: 30px;
+}
+
+.prep {
+  font-size: 20px;
+}
+
+.subheader {
+  font-size: 25px;
+  color: var(--dark-yellow);
+  text-shadow: 1px 1px black;
 }
