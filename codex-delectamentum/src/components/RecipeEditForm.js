@@ -6,8 +6,8 @@ const initialState = {
   series: "",
   image_url: "",
   prep_time: "",
-  ingredients: [""],
-  instructions: [""]
+  ingredients: "",
+  instructions: ""
 }
 
 const RecipeEditForm = ({ onUpdateRecipe }) => {

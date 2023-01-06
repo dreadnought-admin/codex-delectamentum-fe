@@ -8,8 +8,8 @@ const RecipeForm = ({ recipes, setRecipes }) => {
     series: "",
     image_url: "",
     prep_time: "",
-    ingredients: [""],
-    instructions: [""]
+    ingredients: "",
+    instructions: ""
   });
 
   const handleChange = (e) => {
@@ -39,6 +39,15 @@ const RecipeForm = ({ recipes, setRecipes }) => {
                 }
             ).then(res => res.json())
             .then(data => setRecipes([...recipes, data]))
+
+            setFormData({
+              title: "",
+              series: "",
+              image_url: "",
+              prep_time: "",
+              ingredients: "",
+              instructions: ""
+            })
     }
 
         
