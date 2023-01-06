@@ -18,8 +18,8 @@ const RecipeListItem = ({ recipe, handleDelete, enterEditMode }) => {
         </ul>
       </div>
 
-      <div>
-        <h2 className="title">{title} | {series}</h2>
+      <div className="recipeText">
+        <h2 className="title">{title} 🕯️ {series}</h2>
         <h3 className="prep">Total Time to Prepare: {prep_time}</h3>
         <h2 className="subheader">Scavenge For:</h2>
         <p className="ingredients">{ingredients}</p>

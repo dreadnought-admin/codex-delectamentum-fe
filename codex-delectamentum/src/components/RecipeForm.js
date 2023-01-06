@@ -63,7 +63,7 @@ const RecipeForm = ({ recipes, setRecipes }) => {
           <li>
             <label className="label">Title: </label>
             <input
-            className="formInput"
+            className="mainLoginInput"
             type="text"
             name="title"
             id="title"
@@ -75,7 +75,7 @@ const RecipeForm = ({ recipes, setRecipes }) => {
           <li>
             <label className="label">Series: </label>
             <input
-            className="formInput"
+            className="mainLoginInput"
             type="text"
             name="series"
             id="series"
@@ -87,7 +87,7 @@ const RecipeForm = ({ recipes, setRecipes }) => {
           <li>
             <label className="label">Image URL: </label>
             <input
-            className="formInput"
+            className="mainLoginInput"
             type="text"
             name="image_url"
             id="image_url"
@@ -100,7 +100,7 @@ const RecipeForm = ({ recipes, setRecipes }) => {
           <li>
             <label className="label">Prep Time: </label>
             <input
-            className="formInput"
+            className="mainLoginInput"
             type="text"
             name="prep_time"
             id="prep_time"
@@ -113,7 +113,7 @@ const RecipeForm = ({ recipes, setRecipes }) => {
           <li>
             <label className="label">Ingredients: </label>
             <input
-            className="formInput"
+            className="mainLoginInput"
             type="text"
             name="ingredients"
             id="ingredients"
@@ -126,7 +126,7 @@ const RecipeForm = ({ recipes, setRecipes }) => {
           <li>
             <label className="label">Instructions: </label>
             <input
-            className="formInput"
+            className="mainLoginInput"
             type="text"
             name="instructions"
             id="instructions"

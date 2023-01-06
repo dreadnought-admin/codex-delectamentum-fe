@@ -6,7 +6,7 @@ import { NavLink, Link } from 'react-router-dom'
 const Header = () => {
 
   let audio = new Audio("../music/tavernmusic.mp3")
-  const start = () => {
+  function start(){
     audio.play()
   }
 

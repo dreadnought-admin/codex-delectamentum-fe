@@ -21,7 +21,7 @@
 body {
   margin: 0;
   background: url('..//public/images/medieval_tavern_gif.gif');
-  background-size: 100%;
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -107,8 +107,10 @@ body {
 }
 
 .image {
-  max-width: 300px;
-  max-height: 300px;
+  max-height: 25vw;
+  min-height: 15vw;
+  max-width: 25.5vw;
+  min-width: 25vw;
   border-radius: 100%;
   margin-top: 10px;
   border: 1px solid transparent;
@@ -150,7 +152,7 @@ body {
   background-color: transparent;
   border: none;
   font-family: 'Pirata One', cursive;
-  font-size: 15px;
+  font-size: 20px;
   color: white;
   text-decoration: none;
   text-shadow: 1px 1px var(--black);
@@ -259,11 +261,30 @@ body {
   margin-left: 50px;
 }
 
+.mainLoginInput {
+  width: 25em;
+  height: 1em;
+}
+
+
+.mainLoginInput::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-family: 'Lacquer', Arial, Helvetica, sans-serif;
+  opacity: 1; /* Firefox */
+}
+
+.mainLoginInput:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  font-family: 'Lacquer', Arial, Helvetica, sans-serif;
+}
+
+.mainLoginInput::-ms-input-placeholder { /* Microsoft Edge */
+  font-family: 'Lacquer', Arial, Helvetica, sans-serif;
+}
+
 .title {
-  font-family: 'UnifrakturMaguntia', cursive;
+  font-family: 'Nanum Pen Script', cursive;
   color: var(--light-pink);
   text-shadow: 2px 2px 5px black;
-  font-size: 30px;
+  font-size: 35px;
 }
 
 .prep {
@@ -274,4 +295,12 @@ body {
   font-size: 25px;
   color: var(--dark-yellow);
   text-shadow: 1px 1px black;
+}
+
+.ingredients, .instructions {
+  font-size: 20px;
+}
+
+.recipeText {
+
 }

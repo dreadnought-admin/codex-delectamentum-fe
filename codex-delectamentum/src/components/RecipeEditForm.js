@@ -67,6 +67,7 @@ const RecipeEditForm = ({ onUpdateRecipe }) => {
       <li className="editListItem">
       <label htmlFor="title">Title: </label>
       <input
+        className="mainLoginInput"
         type="text"
         id="title"
         name="title"
@@ -78,6 +79,7 @@ const RecipeEditForm = ({ onUpdateRecipe }) => {
       <li className="editListItem">
       <label htmlFor="series">Series: </label>
       <input
+        className="mainLoginInput"
         type="text"
         id="series"
         name="series"
@@ -89,6 +91,7 @@ const RecipeEditForm = ({ onUpdateRecipe }) => {
       <li className="editListItem">
       <label htmlFor="image">Image: </label>
       <input
+        className="mainLoginInput"
         type="text"
         id="image_url"
         name="image_url"
@@ -100,6 +103,7 @@ const RecipeEditForm = ({ onUpdateRecipe }) => {
       <li className="editListItem">
       <label htmlFor="prep_time">Prep Time: </label>
       <input
+        className="mainLoginInput"
         type="text"
         id="prep_time"
         name="prep_time"
@@ -111,6 +115,7 @@ const RecipeEditForm = ({ onUpdateRecipe }) => {
       <li className="editListItem">
       <label htmlFor="ingredients">Ingredients: </label>
       <input
+        className="mainLoginInput"
         type="text"
         id="ingredients"
         name="ingredients"
@@ -122,6 +127,7 @@ const RecipeEditForm = ({ onUpdateRecipe }) => {
       <li className="editListItem">
       <label htmlFor="instructions">Instructions: </label>
       <input
+        className="mainLoginInput"
         type="text"
         id="instructions"
         name="instructions"

@@ -8,7 +8,7 @@ const About = () => {
             <h1><em>Hail, Traveler!</em> ⚜️</h1>
             <h2>Welcome to Codex Delectamentum™, the sacred tome of ancient recipes</h2>
             <h3>Search through our culinary lorem and discover dazzling delectable delights</h3>
-            <p>It's dangerous to travel on an empty stomach!</p>
+            <p><em>It's dangerous to travel on an empty stomach!</em></p>
         </div>
         <span>
             <div>
